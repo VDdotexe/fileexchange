@@ -1,12 +1,13 @@
 # fileexchange
-Snippet to exchange files
+Snippet to exchange files and related stuff.
 
-## to encode files 
+Bash commands: 
+## Encode files 
 ```
 python encode.py filename [OPTIONAL: code_bin.txt]
 ```
 
-## To Split file into parts of 10 mega bytes 
+## Split file into parts of 10 mega bytes 
 ```
 cd /path/to/parts
 split -b 10m ../filename
@@ -17,7 +18,7 @@ split -b 10m ../filename
 cat /path/to/parts/x* > filename
 ```
 
-## to decode files
+## To decode files
 ```
 python code_bin.txt
 ```
