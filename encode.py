@@ -1,14 +1,17 @@
-# code to encode contents of filename in a binary 
+# code to encode contents of filepath in a binary 
 import sys
 
 if len(sys.argv) < 2:
-    raise TypeError('Missing arguments filename and [(OPTIONAL) output_code_filename]')
+    raise TypeError('Missing arguments filepath and [(OPTIONAL) output_code_filepath]')
 
-filename = sys.argv[1]
+filepath = sys.argv[1]
 
-f = open(filename, "rb")
+f = open(filepath, "rb")
 binary_content = f.read()
 f.close()
+
+import os
+filename = (os.path.basename(filepath))
 
 code = f"""
 x = {str(binary_content)}
@@ -18,10 +21,10 @@ f.close()
 """
 
 if len(sys.argv) < 3:
-    outFilename = 'code_bin.txt'
+    outfilepath = 'code_bin.txt'
 else:
-    outFilename = sys.argv[2]
+    outfilepath = sys.argv[2]
 
-f = open(outFilename, "w")
+f = open(outfilepath, "w")
 f.write(code)
 f.close()
