@@ -13,12 +13,12 @@ cd /path/to/parts
 split -b 10m ../filename
 ```
 
-## To merge parts into filename
+## Merge parts into filename
 ```
 cat /path/to/parts/x* > filename
 ```
 
-## To decode files
+## Decode file
 ```
 python code_bin.txt
 ```
