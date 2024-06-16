@@ -1,6 +1,10 @@
 # code to encode contents of filename in a binary 
+import sys
 
-filename = "20240502_171538.jpg"
+if len(sys.argv) < 2:
+    raise TypeError('Missing arguments filename and [(OPTIONAL) output_code_filename]')
+
+filename = sys.argv[1]
 
 f = open(filename, "rb")
 binary_content = f.read()
@@ -13,6 +17,11 @@ f.write(x)
 f.close()
 """
 
-f = open("code.txt", "w")
+if len(sys.argv) < 3:
+    outFilename = 'code_bin.txt'
+else:
+    outFilename = sys.argv[2]
+
+f = open(outFilename, "w")
 f.write(code)
 f.close()
